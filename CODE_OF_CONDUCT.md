@@ -11,7 +11,7 @@ to further their learning and assist others in their data science journey.
 
 
 
-Examples of encouraged behaviours:
+<ins>Examples of encouraged behaviours:<\ins>
 
 * Respecting other peoples' opinion
 * Being open to feedback and using it as a learning opportunity
