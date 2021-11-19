@@ -9,6 +9,11 @@ personal experience and diverse backgrounds.
 We are aiming to create a safe environment where users can freely contribute their ideas and receive feedback. We wish to provide a space where people can come
 to further their learning and assist others in their data science journey.
 
+## Health and Safety
+
+In accordance with health and safety regulations in reponse to COVID-19, we ask the members of our community to do their utmost in keeping themselves and
+their peers healthy. This includes (but is not limited to) wearing masks when meeting in person, abiding by the 2m distance rule where possible, staying home
+if presenting with symptoms, and respecting other people's personal safety precautions.
 
 
 <ins>Examples of encouraged behaviours:
