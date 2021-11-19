@@ -11,7 +11,7 @@ to further their learning and assist others in their data science journey.
 
 
 
-<ins>Examples of encouraged behaviours:<\ins>
+<ins>Examples of encouraged behaviours:
 
 * Respecting other peoples' opinion
 * Being open to feedback and using it as a learning opportunity
@@ -19,7 +19,7 @@ to further their learning and assist others in their data science journey.
 * Being inclusive and welcoming so as not to offend peoples' religion, sexual orientation, gender, political view, etc.
 * Working collaboratively with peers
 
-Examples of discouraged behaviours:
+<ins>Examples of discouraged behaviours:
 
 * Insulting or derogatory comments
 * Excessive swearing
