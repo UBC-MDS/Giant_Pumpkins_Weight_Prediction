@@ -42,4 +42,8 @@ Please rest assured that the project team will do their utmost to retain the con
 
 
 ## Contact
-The project team can be contacted at ____________
+The project team can be contacted at any of the following:
+  * imtvwy@gmail.com
+  * ma.sarafrazi@gmail.com
+  * ssjena.89@gmail.com
+  * rowan.sivanandam@gmail.com
