@@ -44,4 +44,8 @@ if presenting with symptoms, and respecting other people's personal safety preca
   
   
 ## Contact
-The project team can be contacted at ____________
+The project team can be contacted at any of the following:
+  * imtvwy@gmail.com
+  * ma.sarafrazi@gmail.com
+  * ssjena.89@gmail.com
+  * rowan.sivanandam@gmail.com
