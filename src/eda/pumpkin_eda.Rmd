@@ -1,0 +1,58 @@
+---
+title: "Giant Pumpkins EDA"
+date: November 20, 2021
+output: 
+  pdf_document:
+    fig_width: 5
+    fig_height: 5
+    fig_caption: true
+    df_print: kable
+---
+
+
+## Exploratory Data Analysis of the Giant Pumpkins data set
+
+## Summary of the data set
+
+The data set of this project is from [BigPumpkins.com](http://www.bigpumpkins.com/ViewArticle.asp?id=132). These statistics are from the Great Pumpkin Commonwealth's (GPC) Weighoff Results. It is sourced from the [TidyTuesday Data project](https://github.com/rfordatascience/tidytuesday) and the data set can be download [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-19/readme.md).
+
+Each row of the data set represents a GPC weighoff result. Each row includes the id (year-type), place/ranking, grower name, city, state, country, gpc site and variety of the giant pumpkin. It also contains genetic info such as the seed mother and pollinator father. Measurements taken include the weight in lbs and ott in inches (Over the top measurement to estimate weight).
+
+In the raw data, there are rows of 'seperator' inserted after the records of the same 'id'. We have removed these separator records and saved the processed data in the `processed_pumpkins.csv`. A script file for this data processing can be found in ????.
+
+There are in total 28,011 observations and 14 features. Some null values found in the city, seed mother, pollinator father, ott, estimated weight, pct_chart and variety features.
+
+### **Partition the data set into Training and Test sets**
+
+We will split the data with 70% training data and 30% test data. After splitting, the number of observations in the training set and test set are 19,607 and 8,404 respectively.
+
+### Exploratory Data Analysis on the Training set
+
+We have plotted distribution of the target 'weight (Lbs)' and some features in the training set to explore if the features will be useful to predict the weight of the giant pumpkins.
+
+The plot shows most of the observations are from the United States. The distribution of the GPC sites, city and state/province are more evenly distributed. We consider these columns are all good features to be used. Plots of the mean weight of giant pumpkins against different features (ott, country, city, state, gpc site) also suggest these features relates to the target (weight).
+
+\newpage
+
+### Plots of Data Distribution and Relationship
+
+### ![DIstribution of Weight (Lbs)](files/weight_dist_plot.png "Distribution of Weight (Lbs)")
+
+### ![Distribution of Country](files/country_dist_plot.png "Distribution of Country")
+
+
+### ![Distribution of ott, est_weight and pct_chart](files/numeric_dist_plot.png "Distribution of ott, est_weight and pct_chart")
+\newpage
+
+### ![""](files/dist_combined.png)
+
+![""](files/correlation.png)
+\newpage
+
+### Summary Statistics
+
+From the describe summary of the training set (see below), it is noticed that the grower name, seed mother and pollinator father are free-text columns. We think this genetic information might be useful for the prediction of the weight. It is found from the [GPC website](https://gpc1.org/about/resources/) that there is a naming convention for the seed / pollinator (Parent Weight : Grower Name: Year). We may consider to transform this data to separate features at later stage.
+
+The number of non-null values in the variety column is very low. We will drop this column for training as the information may not be useful when there are so many null values.
+
+![Output of Descriptive Summary of the Training Set from Jupyter Notebook](files/train_df_describe_summary.PNG)
