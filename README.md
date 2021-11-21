@@ -45,7 +45,7 @@ The raw data comprises most of the features as character type where some of the 
 
     The desired outputs are processed data set in form of .csv file., RMD file/ Notebook for reproducible codes.
 
-    The initial EDA can be viewed and explored [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/tree/main/src/pumpkin_eda.ipynb).
+    The initial EDA can be viewed and explored [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/blob/main/src/eda/pumpkin_eda.pdf).
 
 3.  **Predictive Modelling**
 
