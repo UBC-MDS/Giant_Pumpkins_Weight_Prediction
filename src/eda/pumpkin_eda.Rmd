@@ -1,7 +1,14 @@
 ---
 title: "Giant Pumpkins EDA"
-output: pdf_document
+date: November 20, 2021
+output: 
+  pdf_document:
+    fig_width: 5
+    fig_height: 5
+    fig_caption: true
+    df_print: kable
 ---
+
 
 ## Exploratory Data Analysis of the Giant Pumpkins data set
 
@@ -23,21 +30,28 @@ We will split the data with 70% training data and 30% test data. After splitting
 
 We have plotted distribution of the target 'weight (Lbs)' and some features in the training set to explore if the features will be useful to predict the weight of the giant pumpkins.
 
-The plot shows most of the observations are from the United States. The distribution of the GPC sites, city and state/province are more evenly distributed. We consider these columns are all good features to be used.
+The plot shows most of the observations are from the United States. The distribution of the GPC sites, city and state/province are more evenly distributed. We consider these columns are all good features to be used. Plots of the mean weight of giant pumpkins against different features (ott, country, city, state, gpc site) also suggest these features relates to the target (weight).
 
-![DIstribution of Weight (Lbs)](files/weight_dist_plot.png "Distribution of Weight (Lbs)")
+\newpage
 
-![Distribution of Country](files/country_dist_plot.png "Distribution of Country")
+### Plots of Data Distribution and Relationship
 
-![Distribution of ott, est_weight and pct_chart](files/numeric_dist_plot.png "Distribution of ott, est_weight and pct_chart")
+### ![DIstribution of Weight (Lbs)](files/weight_dist_plot.png "Distribution of Weight (Lbs)")
 
-![](files/state_dist_plot.png)
+### ![Distribution of Country](files/country_dist_plot.png "Distribution of Country")
 
-![](files/gpc_site_dist_plot.png)
 
-![](files/city_dist_plot.png)
+### ![Distribution of ott, est_weight and pct_chart](files/numeric_dist_plot.png "Distribution of ott, est_weight and pct_chart")
+\newpage
 
-From the describe summary of the training set (see below), it is noticed that the grower name, seed mother and pollinator father are free-text columns which we will use CountVectorizer to extract the bag of words for training. We think this genetic information might be useful for the prediction of the weight.
+### ![""](files/dist_combined.png)
+
+![""](files/correlation.png)
+\newpage
+
+### Summary Statistics
+
+From the describe summary of the training set (see below), it is noticed that the grower name, seed mother and pollinator father are free-text columns. We think this genetic information might be useful for the prediction of the weight. It is found from the [GPC website](https://gpc1.org/about/resources/) that there is a naming convention for the seed / pollinator (Parent Weight : Grower Name: Year). We may consider to transform this data to separate features at later stage.
 
 The number of non-null values in the variety column is very low. We will drop this column for training as the information may not be useful when there are so many null values.
 
