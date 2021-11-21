@@ -41,7 +41,11 @@ The raw data comprises most of the features as character type where some of the 
 
     Data cleaning and preparation is required for making features ready for the machine learning regression model. An analysis of the trends, correlation with actual pumpkin weights, . Both R and Python data wrangling tools such as tidyverse-deplyr, , numpy, pandas, and visualisation tools such as ggplot/ggplot2, Altair, Matplotlib are planned to be used.
 
-    The desired outputs are processed data set in form of .csv file., RMD file/ Notebook for reproducible codes
+    On initial observations, the data seems to be mostly from the US. The distribution of the GPC sites, city and state/province are more evenly distributed. We consider these columns are all good features to be used. Plots of the mean weight of giant pumpkins against different features (ott, country, city, state, gpc site) also suggest these features relates to the target (weight).
+
+    The desired outputs are processed data set in form of .csv file., RMD file/ Notebook for reproducible codes.
+
+    The initial EDA can be viewed and explored [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/tree/main/src/pumpkin_eda.ipynb).
 
 3.  **Predictive Modelling**
 
@@ -49,10 +53,10 @@ The raw data comprises most of the features as character type where some of the 
 
     There are few numerical features and more categorical features.For numerical features, SimpleImputer, StandardScaler is planned tentatively for transformations. For categorical features, One Hot Encoding, SimpleImputer for column transformations are planned.
 
-    Using column transformers and pipe operators, cross-validation is planned to be performed for hyper-parameter optimization for sklearns LinearRegression model using GridSearchCV / RandomSearchCV.
+    Using column transformers and pipe operators, cross-validation is planned to be performed for hyper-parameter optimization for sklearn's LinearRegression model using GridSearchCV / RandomSearchCV.
 
     After optimising the hyperparameters, the model is to be fit on the training set and evaluation is to be done on the test set. For initial stages, accuracy and R-squared scores seem to be the metrics to asses
 
 4.  **Report**
 
-    Results of the analysis can be found [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/tree/a1eea45e1b158dd60859b46464fdf4cd987bc932/src) (folder link for WIP, report to be generated once analysis is completed).
+    Results of the analysis can be found [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/tree/main/doc) (folder link for WIP, report to be generated once analysis is completed).
