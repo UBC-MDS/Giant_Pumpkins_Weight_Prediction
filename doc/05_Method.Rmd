@@ -5,3 +5,9 @@ output: html_notebook
 
 # Method
 Testing Reference. We have been using R [@R] to generate the report
+
+[@sklearn]
+- Feature Selection
+- Transformation
+- Model 
+- Hyperparameter Tuning
