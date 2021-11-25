@@ -3,3 +3,9 @@ title: "R Notebook"
 output: html_notebook
 ---
 # Results and Discussion
+
+- plot_cv.png , test_result.csv,plot_prediction.png
+- CV Result / best hyper parameter
+
+- Conclusion
+=> better approach (different model)

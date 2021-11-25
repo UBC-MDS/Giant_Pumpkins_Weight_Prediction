@@ -4,3 +4,6 @@ output: html_notebook
 ---
 
 # Summary
+- Goal - prediction
+- Highlight of our result
+- 

@@ -3,3 +3,6 @@ title: "R Notebook"
 output: html_notebook
 ---
 # EDA
+
+- eda result (png)
+- relationship of data
