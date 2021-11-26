@@ -1,12 +1,46 @@
 ---
 title: "R Notebook"
 output: html_notebook
+bibliography: doc/pumpkin_ref.bib
 ---
+
 # Data
 
+The data this week comes from [BigPumpkins.com](http://www.bigpumpkins.com/ViewArticle.asp?id=132).
 
-- [pumpkin]
+> The Great Pumpkin Commonwealth's (GPC) mission cultivates the hobby of growing giant pumpkins throughout the world by establishing standards and regulations that ensure quality of fruit, fairness of competition, recognition of achievement, fellowship and education for all participating growers and weigh-off sites.
 
-- source 
-- type, id, .....
-- summary data of raw data
+The dataset is a public domain resource which pertains to the attributes of giant pumpkins grown in around 20 countries across the world in different regions. The raw data which was used in this project for the analysis can be found [here](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-19/pumpkins.csv) from \[\@tidytuesday\].
+
+Following are the description of the data and its attributes:
+
+## Data dictionary
+
+| **variable**      | **class** | **description**                                     |
+|-------------------|-----------|-----------------------------------------------------|
+| id                | character | Year-type                                           |
+| place             | character | Place/ranking                                       |
+| weight_lbs        | character | Weight in pounds                                    |
+| grower_name       | character | Name of grower                                      |
+| city              | character | City                                                |
+| state_prov        | character | State/Province                                      |
+| country           | character | Country                                             |
+| gpc_site          | character | GPC site (great pumpkin commonwealth)               |
+| seed_mother       | character | Seed mother                                         |
+| pollinator_father | character | Father                                              |
+| ott               | character | Over the top inches, can be used to estimate weight |
+| est_weight        | character | Estimated weight in lbs                             |
+| pct_chart         | character | Percent on chart                                    |
+| variety           | character | Variety of pumpkin                                  |
+
+Types: F = "Field Pumpkin", P = "Giant Pumpkin", S = "Giant Squash", W = "Giant Watermelon", L = "Long Gourd" (length in inches, not weight in pounds), T = Tomato
+
+Data description adapted from [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-19/readme.md).
+
+## Summary of raw data
+
+-   There are a total of about 28000 observations out of which about 15000 observations are of the type 'P' pertaining to Giant Pumpkins variety which is our subject of interest here.
+
+-   The raw data is of char type and needs to be converted suitably into numeric and character types for feature preparation.
+
+-   Some cleaning and preprocessing would be required for columns like `id` (separation of year and type), which contain valuable information.
