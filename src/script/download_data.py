@@ -1,4 +1,4 @@
-# author : Mahsa Sarafrazi
+# author: Mahsa Sarafrazi, Rowan Sivanandam, Shiva Jena, and Vanessa Yuen
 # date : 2021-11-19
 
 """ Downloads a csv data file from a url and save it to local file path as csv format.
