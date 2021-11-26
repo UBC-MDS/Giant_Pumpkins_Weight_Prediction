@@ -8,12 +8,12 @@ output: html_notebook
 The data set used in this project is originally from [GPwebsite](http://www.bigpumpkins.com/Default.asp). The Great Pumpkin Commonwealth's (GPC) mission promotes the hobby of cultivating giant pumpkins throughout the world through standards and regulations to ensure quality of fruit, fairness of competition, recognition of achievement, fellowship and education for all participating growers and weigh-off sites. (Read more [here](https://gpc1.org/ "GPC website") and [here](http://www.bigpumpkins.com/ "Data on giant pumpkins from bigpumkins.com")).
 
 
-In 1979, a Nova Scotia farmer named Howard Dill happened to grow a particularly large pumpkin. He decided to bring it to a fair near Philadelphia that was holding a weigh-off; his 438.5-pound vegetable won first place. and that is how this competition takes place, now we would like to predict the next years pumpkin weights.
+In 1979, a Nova Scotia farmer named Howard Dill happened to grow a particularly large pumpkin. He decided to bring it to a fair near Philadelphia that was holding a weigh-off, his 438.5-pound vegetable won first place. This brief summary brings us to our prediction question to determine if we are able to predict pumpkin weights for the following year.
 
-Giant pumpkin growing is a surprisingly competitive hobby. The right seeds can command huge prices. The prize money can be even bigger. if you break the world's record (1,226 kg) the prize would be $30,000 And everyone dreams of a spot in "the Super Bowl of pumpkin weigh-offs."
+Giant pumpkin growing is a surprisingly competitive hobby. The right seeds can command huge prices. The prize money can be even bigger. if you break the world record (1,226 kg) the prize would be $30,000. Everyone dreams of a spot in "the Super Bowl of pumpkin weigh-offs."
 
-So lets test a model to estimate whether next year farmers can break the records or not.
+So let's test a model to estimate whether within the next year farmers can break the record or not.
 
-Base on our the data gathered by bigpumpkins website, ott (over the top) feature is the most importaant feature for estimating the weight which is shown in below picture.
+Base on the data gathered by bigpumpkins website, the ott (over the top) is the most important feature for estimating the weight which is shown in below picture.
 
 `r knitr::include_graphics("ott.png")`
