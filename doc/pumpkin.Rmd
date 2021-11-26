@@ -2,7 +2,9 @@
 title: "Giant Pumpkins Weight Prediction Report"
 authors: "Mahsa Sarafrazi, Rowan Sivanandam, Shiva Jena, and Vanessa Yuen"
 bibliography: pumpkin_ref.bib
-output: html_document
+output: 
+    html_document:
+        toc=true
 ---
 
 ```{r setup, include=FALSE}

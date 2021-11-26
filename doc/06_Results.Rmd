@@ -1,11 +1,30 @@
 ---
-title: "R Notebook"
+title: "Results"
 output: html_notebook
 ---
 # Results and Discussion
 
-- plot_cv.png , test_result.csv,plot_prediction.png
-- CV Result / best hyper parameter
+Initially, to determine which features would be useful in predicting pumpkin
+weight, we plotted distributions of pumpkin weights and each feature.
+
+```{r feature-distributions, echo=FALSE, fig.cap="Figure 1. Comparison of distributions of pumpkin weights and features.", out.width = '100%'}
+knitr::include_graphics("..src/eda/results/correlation.png")
+```
 
 - Conclusion
-=> better approach (different model)
+
+We tuned the hyperparameters of the Ridge model and found the most effective
+parameter to be _______. In doing so, we were able to achieve a cross validation
+score of _______.
+
+```{r hyperparameter_tuning, echo=FALSE, fig.cap="Figure 2. Hyperparameter Tuning for Ridge($\alpha$", out.width = '60%'}
+knitr::include_graphics("..src/eda/results/_______.png")
+```
+
+Our prediction model performed decently well on the test data ______
+
+Finally, during our EDA, we were able to create a more accurate model to
+predict weights of giant pumpkins but have opted to use the Ridge model instead. 
+We have chosen to do so as the _____ model required upwards of 5 hours to run 
+which we believe to be impractical and as such have decided to use a slightly less
+accurate but much faster model.
