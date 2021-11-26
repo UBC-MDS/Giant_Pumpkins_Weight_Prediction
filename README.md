@@ -8,7 +8,7 @@ Analytical project prepared as part of the course DSCI 522 of the Master of Data
 
 ## About the project
 
-This analytical project is an attempt at creating a machine learning linear regression model to predict a continuous variable, weight of giant pumpkins based on features such as type of pumpkin, place of cultivation (country, city, state province, GPC site), seed origins, pollinator father etc.
+This analytical project is an attempt at creating a machine learning linear regression model to predict a continuous variable, weight of giant pumpkins based on features such as type of pumpkin, place of cultivation (country, city, state province, GPC site), seed origins, pollinator father, etc.
 
 ### Background on Giant Pumpkins and GPC
 
@@ -24,38 +24,39 @@ Given certain features of the seeds, place of cultivation, features of the paren
 
 To answer this predictive question, we need to first answer some underlying data related questions such as:
 
--   Is there a relationship between features of the seeds, place of cultivation etc and the weight of the pumpkins?
+-   Is there a relationship between features of the seeds, place of cultivation, and the weight of the pumpkins?
 
 -   How are the weights distributed across regions?
 
 ## Method
 
-The raw data comprises most of the features as character type where some of the features such as `id` contain important information like the pumpkin type. Therefore, in order to proceed, an initial data cleaning, preparation and pre-processing is required to make the features ready for training purposes. However, since the analysis is an attempt to answer a machine learning prediction problem, the dataset is first split into 70 % - 30 % sets of training and test sets respectively along with random seeding for reproducibility. Brief details of the tentative steps are mentioned below for an outline:
+The majority of the raw data comprises of features of the character type where some of the features such as `id` contain important information such as the pumpkin type. Therefore, in order to proceed, an initial data cleaning, preparation and pre-processing is required to make the features ready for training purposes. However, since the analysis is an attempt to answer a machine learning prediction problem, the dataset is first split into a 70/30 split for the training and test sets respectively along with random seeding for reproducibility. Brief details of the steps are mentioned below for an outline:
 
 1.  **Train Test Split**  
-    Splitting the dataset into train and test splits along with random seed for reproducibility will be the first step.
+    Splitting the dataset into train and test splits along with random seed for reproducibility.
 
-    The desired outputs are 70- 30 % splits of training and test data set respectively.
+    The desired outputs are a 70/30 split of training and test data.
 
 2.  **Exploratory Data Analysis (EDA):**
 
-    Data cleaning and preparation is required for making features ready for the machine learning regression model. An analysis of the trends, correlation with actual pumpkin weights, . Both R and Python data wrangling tools such as tidyverse-deplyr, , numpy, pandas, and visualisation tools such as ggplot/ggplot2, Altair, Matplotlib are planned to be used.
+    Data cleaning and preparation is required for making features ready for the machine learning regression model. An analysis of the trends and correlation with actual pumpkin weights and various features will be used. Both R and Python data wrangling tools such as tidyverse-deplyr, numpy, pandas, and visualisation tools such as ggplot/ggplot2, Altair, Matplotlib are planned to be used.
 
-    On initial observations, the data seems to be mostly from the US. The distribution of the GPC sites, city and state/province are more evenly distributed. We consider these columns are all good features to be used. Plots of the mean weight of giant pumpkins against different features (ott, country, city, state, gpc site) also suggest these features relates to the target (weight).
+    On initial observations, the data seems to be mostly from the US. The distribution of the GPC sites, city and state/province are more evenly distributed. We consider these columns as good features to be used. Plots of the mean weight of giant pumpkins against different features (ott, country, city, state, gpc site) also suggest these features relates to the target (weight).
 
-    The desired outputs are processed data set in form of .csv file., RMD file/ Notebook for reproducible codes.
+    The desired outputs are processed data sets in form of .csv files and RMD files/Notebooks for reproducible codes.
 
     The initial EDA can be viewed and explored [here](/src/eda/pumpkin_eda.pdf).
 
 3.  **Predictive Modelling**
 
-    Linear Regression model is chosen since pumpkin weight is a continuous quantitative/ numerical variable. The model is planned to be trained and tested using Scikit Learn (sklearn) packages.
+    The Ridge Linear Regression model will be used as pumpkin weight is a continuous, quantitative, numerical variable. The model is planned to be trained and tested using Scikit Learn (sklearn) packages.
 
-    There are few numerical features and more categorical features.For numerical features, SimpleImputer, StandardScaler is planned tentatively for transformations. For categorical features, One Hot Encoding, SimpleImputer for column transformations are planned.
+    There are few numerical features and more categorical features. For numerical features, SimpleImputer and StandardScaler will be used during the preprocessing stage where as for categorical features, One-Hot Encoding and SimpleImputer for will ready the data
+    for analysis.
 
-    Using column transformers and pipe operators, cross-validation is planned to be performed for hyper-parameter optimization for sklearn's LinearRegression model using GridSearchCV / RandomSearchCV.
+    Using column transformers and pipe operators, cross-validation will be performed for hyperparameter optimization of sklearn's LinearRegression model using GridSearchCV.
 
-    After optimising the hyperparameters, the model is to be fit on the training set and evaluation is to be done on the test set. For initial stages, accuracy and R-squared scores seem to be the metrics to asses
+    After optimising the hyperparameters, the model will be fit on the training set and evaluation to be done on the test set. In the initial stages, the R-squared score will be the underlying metrics used to assess our model.
 
 ## Report
 
