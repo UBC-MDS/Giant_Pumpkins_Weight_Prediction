@@ -1,13 +1,30 @@
 ---
-title: "R Notebook"
+title: "Method"
 output: html_notebook
 ---
 
-# Method
-Testing Reference. We have been using R [@R] to generate the report
-
-[@sklearn]
-- Feature Selection
-- Transformation
-- Model 
-- Hyperparameter Tuning
+## Analysis
+The majority of the raw data is composed of features with the character data type 
+where some of the features such as 'country' or 'city' contain information relating
+to the origin of the pumpkin and where it was grown whilst others are numeric such as
+the year the pumpkin was grown.We have chosen features that we believe may 
+impact the weight of a pumpkin whilst dropping other features that we deem
+irrelevant. An initial data cleaning, preparation and pre-processing was required to 
+ready the data for training purposes. The dataset was split with a 70/30 split
+for the training and test sets respectively along with random seeding for 
+reproducibility. 
+  
+  
+  
+For the numeric features, we used a simple imputer to insert the 'mean' value
+for any missing or Null values as well as a standard scaler via a pipeline. For
+categorical features, we similarly used a simple imputer but instead of filling
+in values with the mean, we filled them in with the value 'missing'. We then used
+one hot encoding to further evaluate each feature.
+  
+  
+  
+The Ridge model was used to build and predict the weight (lbs) of a giant pumpkin
+given certain features from the dataset. The model was created using the train dataset,
+combined with the features we spoke about earlier, and the actual given weights
+of particular giant pumpkins.
