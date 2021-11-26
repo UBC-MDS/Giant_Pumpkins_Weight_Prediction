@@ -16,10 +16,16 @@ python src/script/clean_split_train_test.py --file="data/raw/pumpkins.csv" --out
 python src/script/eda.py --file="data/processed/pumpkins_train.csv" --out_dir="doc/result"
 
 # Perform data preprocessing and tune regression model
-python src/script/preprocessor_model.py --file="data/processed/pumpkins_train.csv" --out_dir="doc/result"
+cv_result=$(python src/script/preprocessor_model.py --file="data/processed/pumpkins_train.csv" --out_dir="doc/result")
+IFS=' '
+read -a arr <<< "$cv_result"
+best_alpha=${arr[0]}
+best_score_cv=${arr[1]}
 
 # Evalate the model with test result
-python src/script/evaluate.py --file="data/processed/pumpkins_test.csv" --object_file="doc/result/model.pickle" --out_dir="doc/result"
+test_score=$(python src/script/evaluate.py --file='data/processed/pumpkins_test.csv' --object_file='doc/result/model.pickle' --out_dir='doc/result')
+
 
 # Render final report
-Rscript -e "rmarkdown::render('doc/pumpkin.Rmd')"
+Rscript -e "rmarkdown::render('doc/pumpkin.Rmd', params = list(best_alpha=$best_alpha, best_score_cv=$best_score_cv, test_score=$test_score))"
+
