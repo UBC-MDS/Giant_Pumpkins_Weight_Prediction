@@ -57,6 +57,20 @@ The raw data comprises most of the features as character type where some of the 
 
     After optimising the hyperparameters, the model is to be fit on the training set and evaluation is to be done on the test set. For initial stages, accuracy and R-squared scores seem to be the metrics to asses
 
-4.  **Report**
+## Report
 
-    Results of the analysis can be found [here](/doc) (folder link for WIP, report to be generated once analysis is completed).
+Results of the analysis can be found [here](/doc) .
+
+## Usage
+
+For replicating the analysis and usage, clone this GitHub repository and download the data by running the commands provided below at terminal/command line from the root directory of this project folder (".../Giant_Pumpkins_Weight_Prediction/"):
+
+    python src/data/data_download.py --url="https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction" --outputfile="data/raw/pumpkins.data"
+
+## Dependencies
+
+The dependencies for this project can be found in `environment.yaml` located [here](https://raw.githubusercontent.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/main/environment.yaml). The yaml file needs to be run to create the environment required for running the analysis. If conda is installed, the following command can be run at the terminal/ command line from the root directory of this project folder (".../Giant_Pumpkins_Weight_Prediction/") to install the dependencies:
+
+    conda env create -f environment.yaml
+
+## References

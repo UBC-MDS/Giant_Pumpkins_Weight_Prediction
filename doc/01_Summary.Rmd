@@ -4,6 +4,9 @@ output: html_notebook
 ---
 
 # Summary
-- Goal - prediction
-- Highlight of our result
-- 
+
+
+This project is an attempt to build a prediction model to estimate the weight of giant pumpkins based on their features
+such as year of cultivation, place and over the top(ott) size , in order to predict the next year's winner of the GP 
+competition. Our final model is Ridge which performance is fair on an unseen test data set. To get the best results, we have tuned the hyperparameter of this model (alpha). The core on cross validation sets is on average `python round(cv_scores,1)` and the test score is `python round(score, 1)`. Based on this model, the most coefficient feature is ... . We test other Models such as random forest that performed well on test data, yet the drawback of this model is its fitting time. Therefore, for the purpose of reproducibility of the results, we decided to choose Ridge model, but if you want more precise results, we recommend other models.
+ 
