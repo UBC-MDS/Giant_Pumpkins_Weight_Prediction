@@ -7,7 +7,8 @@ params:
   best_score_cv: -1
   test_score: -1
 output: 
-    html_document
+    html_document:
+      toc: yes
 ---
 
 ```{r setup, include=FALSE}

@@ -10,7 +10,7 @@ The data used for this project comes from [BigPumpkins.com](http://www.bigpumpki
 
 > The Great Pumpkin Commonwealth's (GPC) mission cultivates the hobby of growing giant pumpkins throughout the world by establishing standards and regulations that ensure quality of fruit, fairness of competition, recognition of achievement, fellowship and education for all participating growers and weigh-off sites.
 
-The dataset is a public domain resource which pertains to the attributes of giant pumpkins grown in around 20 countries across the world in different regions. The raw data which was used in this project for the analysis can be found [here](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-19/pumpkins.csv) from \[\@tidytuesday\].
+The dataset is a public domain resource which pertains to the attributes of giant pumpkins grown in around 20 countries across the world in different regions. The raw data which was used in this project for the analysis can be found [here](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-19/pumpkins.csv) from [@tidytuesday].
 
 Following are the description of the data and its attributes:
 
@@ -43,5 +43,4 @@ Data description adapted from [here](https://github.com/rfordatascience/tidytues
 
 -   The raw data is of char type and needs to be converted suitably into numeric and character types for feature preparation.
 
--   Some cleaning and preprocessing will be required for columns like `id` (separation of year and type), which contains
-information to be used in the prediction model.
+-   Some cleaning and preprocessing will be required for columns like `id` (separation of year and type), which contains information to be used in the prediction model.

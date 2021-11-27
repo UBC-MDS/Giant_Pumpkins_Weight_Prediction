@@ -33,9 +33,6 @@ def main(file, out_dir):
 
     pumpkins_df = pd.read_csv(file)
 
-    # to be removed, for faster testing
-    #pumpkins_df = pumpkins_df[0:1000]
-
     # split features and target X_train, y_train
     X_train = pumpkins_df.drop(columns=["weight_lbs"])
     y_train = pumpkins_df["weight_lbs"]
@@ -47,7 +44,8 @@ def main(file, out_dir):
     # Use different SimpleImputer for city (constant="missing") and ott (strategy="mean)
     # numerical transformer
     numeric_transformer = make_pipeline(
-        SimpleImputer(strategy="mean"), StandardScaler())
+        # SimpleImputer(strategy="mean"), StandardScaler())
+        SimpleImputer(strategy="median"), StandardScaler())
 
     # categorical transformer
     categorical_transformer = make_pipeline(

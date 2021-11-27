@@ -17,13 +17,13 @@ editor_options:
 We found the optimized `alpha` value of our Ridge model be `r params$best_alpha`. In doing so, we were able to achieve a cross
 validation score of `r params$best_score_cv`.
 
-```{r hyperparameter_tuning, echo=FALSE, fig.cap="Figure ?. Hyperparameter Tuning for Ridge", out.width = '60%'}
+```{r hyperparameter_tuning, echo=FALSE, fig.cap="Figure 1. Hyperparameter Tuning for Ridge", out.width = '60%'}
 library(knitr)
 knitr::include_graphics("result/tuning_ridge.png")
 ```
 
 Our prediction model performed decently well on the test data as well.  The testing score we obtained with the testing set is `r params$test_score`.  Below graph shows the plot of the predicted weight (lbs) vs actual weight (lbs) from the testing data set.  
-```{r predictin, echo=FALSE, fig.cap="Figure ?. Prediction weights vs Actual weights", out.width = '60%'}
+```{r predictin, echo=FALSE, fig.cap="Figure 2. Prediction weights vs Actual weights", out.width = '60%'}
 library(knitr)
 knitr::include_graphics("result/predict_result.png")
 ```

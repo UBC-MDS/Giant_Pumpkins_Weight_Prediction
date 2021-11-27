@@ -22,6 +22,12 @@ In the raw data, there are rows of 'seperator' inserted after the records of the
 
 There are in total 28,011 observations and 14 features. Some null values found in the city, seed mother, pollinator father, ott, estimated weight, pct_chart and variety features.
 
+### Summary Statistics
+Summary of the data is given below:
+
+![Output of Descriptive Summary of the Training Set from Jupyter Notebook](files/train_df_describe_summary.PNG)
+
+\newpage
 ## **Partition the data set into Training and Test sets**
 
 We will split the data with 70% training data and 30% test data. After splitting, the number of observations in the training set and test set are 19,607 and 8,404 respectively.
@@ -50,8 +56,7 @@ The number of non-null values in the variety column is very low. We will drop th
 
 ### ![""](files/dist_combined.png)
 
-![""](files/correlation.png) \newpage
+\newpage
 
-### Summary Statistics
+![""](files/correlation.png)
 
-![Output of Descriptive Summary of the Training Set from Jupyter Notebook](files/train_df_describe_summary.PNG)
