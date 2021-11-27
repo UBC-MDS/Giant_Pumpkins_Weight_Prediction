@@ -10,9 +10,7 @@ editor_options:
 
 # Analysis
 
-The programming language [@Python] and the scikit-learn [@scikit-learn] are used to build our machine learn model.
-
-The Python programming language [@pypi] and the following python packages were used to perform the analysis:Altair[@vanderplas2018altair], SKlearn [@pedregosa2011scikit], knitr [@k nitr] and tidyverse [@tidyverse]. 
+The Python programming language [@pypi] and the following packages were used to perform the analysis: Altair[@vanderplas2018altair], SKlearn [@pedregosa2011scikit] and knitr [@knitr]. 
 
 The majority of the raw data is composed of features with the character
 data type whilst others are numeric features. Some categorical features

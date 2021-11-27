@@ -114,7 +114,7 @@ details of the steps are mentioned below for an outline:
 ## Report
 
 Results of the analysis can be found
-[here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/tree/main/doc)
+[here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/blob/main/doc/pumpkin.html)
 .
 
 ## Dependencies
