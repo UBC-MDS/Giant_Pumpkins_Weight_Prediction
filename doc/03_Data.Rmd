@@ -6,7 +6,7 @@ bibliography: doc/pumpkin_ref.bib
 
 # Data
 
-The data this week comes from [BigPumpkins.com](http://www.bigpumpkins.com/ViewArticle.asp?id=132).
+The data used for this project comes from [BigPumpkins.com](http://www.bigpumpkins.com/ViewArticle.asp?id=132).
 
 > The Great Pumpkin Commonwealth's (GPC) mission cultivates the hobby of growing giant pumpkins throughout the world by establishing standards and regulations that ensure quality of fruit, fairness of competition, recognition of achievement, fellowship and education for all participating growers and weigh-off sites.
 
@@ -43,4 +43,5 @@ Data description adapted from [here](https://github.com/rfordatascience/tidytues
 
 -   The raw data is of char type and needs to be converted suitably into numeric and character types for feature preparation.
 
--   Some cleaning and preprocessing would be required for columns like `id` (separation of year and type), which contain valuable information.
+-   Some cleaning and preprocessing will be required for columns like `id` (separation of year and type), which contains
+information to be used in the prediction model.
