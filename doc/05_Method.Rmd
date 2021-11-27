@@ -8,7 +8,9 @@ editor_options:
     wrap: 72
 ---
 
-## Analysis
+# Analysis
+
+The programming language [@Python] and the scikit-learn [@scikit-learn] are used to build our machine learn model.
 
 The majority of the raw data is composed of features with the character
 data type whilst others are numeric features. Some categorical features
