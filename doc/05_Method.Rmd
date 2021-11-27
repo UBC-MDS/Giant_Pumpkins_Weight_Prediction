@@ -10,6 +10,8 @@ editor_options:
 
 ## Analysis
 
+The Python programming language [@pypi] and the following python packages were used to perform the analysis:Altair[@vanderplas2018altair], SKlearn [@pedregosa2011scikit], knitr [@k nitr] and tidyverse [@tidyverse]. 
+
 The majority of the raw data is composed of features with the character
 data type whilst others are numeric features. Some categorical features
 such as `country`, `state_prov` and `city` contain information relating
@@ -30,7 +32,7 @@ ready the data for training purposes. The dataset was split with a 70/30
 split for the training and test sets respectively along with random
 seeding for reproducibility.
 
-For the numeric features, we used a simple imputer to insert the 'mean'
+For the numeric features, we used a simple imputer to insert the 'median'
 value for any missing or Null values as well as a standard scaler via a
 pipeline. For categorical features, we similarly used a simple imputer
 but instead of filling in values with the mean, we filled them in with
