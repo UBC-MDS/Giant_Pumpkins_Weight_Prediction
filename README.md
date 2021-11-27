@@ -131,8 +131,9 @@ dependencies:
     conda env create -f environment.yaml
 
 For generating the plots in the report, install the following packages
-with this command:
+with this command in the environment created:
 
+    conda activate pumpkin
     npm install -g vega vega-cli vega-lite canvas
 
 ## Usage
