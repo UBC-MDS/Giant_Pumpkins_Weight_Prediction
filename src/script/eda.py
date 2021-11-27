@@ -113,7 +113,7 @@ def main(file, out_dir):
         .properties(width=300, height=200)
     )
 
-    # avg weight by state/provience
+    # avg weight by state/province
     state = (
         alt.Chart(train_df, title="Mean Weight Vs State/Prov")
         .mark_point(opacity=0.5, clip=True)
