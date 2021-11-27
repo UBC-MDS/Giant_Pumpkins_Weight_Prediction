@@ -66,11 +66,6 @@ The majority of the raw data comprises of features of the character type where s
 
 Results of the analysis can be found [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/tree/main/doc) .
 
-## Usage
-
-For replicating the analysis and usage, clone this GitHub repository and run the following command at the root directory of the cloned repository folder.
-
-    bash run_all.sh
 
 ## Dependencies
 
@@ -81,5 +76,12 @@ The dependencies for this project can be found in `environment.yaml` located [he
 For generating the plots in the report, install the following packages with this command:
 
     npm install -g vega vega-cli vega-lite canvas
+
+## Usage
+
+For replicating the analysis and usage, clone this GitHub repository and run the following script in the `pumpkin` environment created.  You may run the following commands at the root directory of the cloned repository folder. 
   
+    conda activate pumpkin
+    bash run_all.sh  
+    
 ## References

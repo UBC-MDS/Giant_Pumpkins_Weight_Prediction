@@ -44,7 +44,8 @@ def main(file, out_dir):
     # Use different SimpleImputer for city (constant="missing") and ott (strategy="mean)
     # numerical transformer
     numeric_transformer = make_pipeline(
-        SimpleImputer(strategy="mean"), StandardScaler())
+        # SimpleImputer(strategy="mean"), StandardScaler())
+        SimpleImputer(strategy="median"), StandardScaler())
 
     # categorical transformer
     categorical_transformer = make_pipeline(
