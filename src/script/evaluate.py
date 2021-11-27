@@ -36,9 +36,6 @@ def main(file, object_file, out_dir):
 
     pumpkins_test_df = pd.read_csv(file)
 
-    # to be removed, for faster testing
-    #pumpkins_test_df = pumpkins_test_df[0:1000]
-
     # split features and target X_test, y_test
     X_test = pumpkins_test_df.drop(columns=["weight_lbs"])
     y_test = pumpkins_test_df["weight_lbs"]
