@@ -64,7 +64,7 @@ The majority of the raw data comprises of features of the character type where s
 
 ## Report
 
-Results of the analysis can be found [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/tree/main/doc) .
+Results of the analysis can be found [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/blob/main/doc/pumpkin.html) .
 
 
 ## Dependencies
