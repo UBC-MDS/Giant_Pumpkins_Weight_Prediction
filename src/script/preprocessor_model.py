@@ -7,7 +7,7 @@ Usage: fit_predict.py --file=<file> --out_dir=<out_dir>
 Options:
 --file<file>            the path and filename of the train data set  (must be in standard csv format)
 --out_dir=<out_dir>     the path of where the output eda figures will be saved
-""" 
+"""
 
 import os
 from docopt import docopt
@@ -28,18 +28,17 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 opt = docopt(__doc__)
 
+
 def main(file, out_dir):
-    
-    pumpkins_df= pd.read_csv(file)
+
+    pumpkins_df = pd.read_csv(file)
 
     # to be removed, for faster testing
     #pumpkins_df = pumpkins_df[0:1000]
-    
 
     # split features and target X_train, y_train
     X_train = pumpkins_df.drop(columns=["weight_lbs"])
     y_train = pumpkins_df["weight_lbs"]
-    
 
     # Create Column Transformer for data transformation
     categorical_features = ["country", "city", "state_prov", "gpc_site"]
@@ -47,7 +46,8 @@ def main(file, out_dir):
 
     # Use different SimpleImputer for city (constant="missing") and ott (strategy="mean)
     # numerical transformer
-    numeric_transformer = make_pipeline(SimpleImputer(strategy="mean"), StandardScaler())
+    numeric_transformer = make_pipeline(
+        SimpleImputer(strategy="mean"), StandardScaler())
 
     # categorical transformer
     categorical_transformer = make_pipeline(
@@ -75,7 +75,8 @@ def main(file, out_dir):
     cv_scores = search.cv_results_["mean_test_score"]
 
     # Plot tuning result
-    plt.semilogx(param_grid["ridge__alpha"], train_scores.tolist(), label="train")
+    plt.semilogx(param_grid["ridge__alpha"],
+                 train_scores.tolist(), label="train")
     plt.semilogx(param_grid["ridge__alpha"], cv_scores.tolist(), label="cv")
     plt.legend()
     plt.xlabel("alpha")
@@ -83,18 +84,20 @@ def main(file, out_dir):
 
     # save result to png
     Path(out_dir).mkdir(parents=True, exist_ok=True)
-    
+
     plt.savefig(out_dir+"/tuning_ridge.png")
 
     # Report CV score
     best_alpha = search.best_params_
-    print("The best alpha value is " + str(best_alpha))
-
     best_score = search.best_score_
-    print("The best CV score is " + str(best_score))
-   
+
+    #print("The best alpha value is " + str(best_alpha))
+    #print("The best CV score is " + str(best_score))
+    print(str(best_alpha.get("ridge__alpha")) + " " + str(best_score))
+
     with open(out_dir+"/model.pickle", "wb") as f:
         pickle.dump(search, f, pickle.HIGHEST_PROTOCOL)
-    
+
+
 if __name__ == "__main__":
-    main(opt['--file'],opt['--out_dir'])
+    main(opt['--file'], opt['--out_dir'])

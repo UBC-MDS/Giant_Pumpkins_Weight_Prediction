@@ -9,7 +9,7 @@ Options:
 -object_file=<object_file>  the path of the model object trained
 --out_dir=<out_dir>         the path of where the results will be saved
 
-""" 
+"""
 
 import os
 from docopt import docopt
@@ -31,13 +31,13 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 opt = docopt(__doc__)
 
+
 def main(file, object_file, out_dir):
-       
+
     pumpkins_test_df = pd.read_csv(file)
 
     # to be removed, for faster testing
     #pumpkins_test_df = pumpkins_test_df[0:1000]
-    
 
     # split features and target X_test, y_test
     X_test = pumpkins_test_df.drop(columns=["weight_lbs"])
@@ -46,24 +46,25 @@ def main(file, object_file, out_dir):
     # load the tuned model
     with open(object_file, "rb") as f:
         model = pickle.load(f)
-    
+
     predict_y = model.predict(X_test)
     score = model.score(X_test, y_test)
-    
-    out_df = pd.DataFrame({"actual_weight_lbs":y_test, "predicted_weight_lbs":predict_y})
+
+    out_df = pd.DataFrame({"actual_weight_lbs": y_test,
+                          "predicted_weight_lbs": predict_y})
 
     # plot an actual/prediction graph
     prediction = (
-    alt.Chart(out_df, title="Predicted weight vs Actual weight")
-    .mark_point(opacity=0.5)
-    .encode(x=alt.X("actual_weight_lbs", title="Actual Weight (lbs)"), 
-            y=alt.Y("predicted_weight_lbs", title="Predicted Weight (lbs)")
-    )
+        alt.Chart(out_df, title="Predicted weight vs Actual weight")
+        .mark_point(opacity=0.5)
+        .encode(x=alt.X("actual_weight_lbs", title="Actual Weight (lbs)"),
+                y=alt.Y("predicted_weight_lbs", title="Predicted Weight (lbs)")
+                )
     )
     dummy_df = pd.DataFrame(
         {
-        "actual_weight_lbs": [0, 3500],
-        "predicted_weight_lbs": [0, 3500],
+            "actual_weight_lbs": [0, 3500],
+            "predicted_weight_lbs": [0, 3500],
         }
     )
 
@@ -76,13 +77,14 @@ def main(file, object_file, out_dir):
 
     # save the prediction result in output folder
     Path(out_dir).mkdir(parents=True, exist_ok=True)
-    out_df.to_csv(out_dir + "/test_result.csv", index = False)
+    out_df.to_csv(out_dir + "/test_result.csv", index=False)
     compiled.save(out_dir+"/predict_result.png")
-    
+
     # Report score
-    print("The testing score is " + str(score))
-    print(out_df[0:100])
-    
+    print(score)
+    #print("The testing score is " + str(score))
+
+
 if __name__ == "__main__":
-    #main(opt['--file'],opt['--out_dir'])
+    # main(opt['--file'],opt['--out_dir'])
     main(opt['--file'], opt['--object_file'], opt['--out_dir'])

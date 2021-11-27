@@ -1,30 +1,36 @@
 ---
 title: "Results"
-output: html_notebook
+params:
+  best_alpha: -1
+  best_score_cv: -1
+  test_score: -1
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  markdown:
+    wrap: 72
 ---
+
 # Results and Discussion
 
-Initially, to determine which features would be useful in predicting pumpkin
-weight, we plotted distributions of pumpkin weights and each feature.
+We found the optimized `alpha` value of our Ridge model be `r params$best_alpha`. In doing so, we were able to achieve a cross
+validation score of `r params$best_score_cv`.
 
-```{r feature-distributions, echo=FALSE, fig.cap="Figure 1. Comparison of distributions of pumpkin weights and features.", out.width = '100%'}
-knitr::include_graphics("..src/eda/results/correlation.png")
+```{r hyperparameter_tuning, echo=FALSE, fig.cap="Figure ?. Hyperparameter Tuning for Ridge", out.width = '60%'}
+library(knitr)
+knitr::include_graphics("result/tuning_ridge.png")
 ```
 
-- Conclusion
-
-We tuned the hyperparameters of the Ridge model and found the most effective
-parameter to be _______. In doing so, we were able to achieve a cross validation
-score of _______.
-
-```{r hyperparameter_tuning, echo=FALSE, fig.cap="Figure 2. Hyperparameter Tuning for Ridge($\alpha$", out.width = '60%'}
-knitr::include_graphics("..src/eda/results/_______.png")
+Our prediction model performed decently well on the test data as well.  The testing score we obtained with the testing set is `r params$test_score`.  Below graph shows the plot of the predicted weight (lbs) vs actual weight (lbs) from the testing data set.  
+```{r predictin, echo=FALSE, fig.cap="Figure ?. Prediction weights vs Actual weights", out.width = '60%'}
+library(knitr)
+knitr::include_graphics("result/predict_result.png")
 ```
 
-Our prediction model performed decently well on the test data ______
-
-Finally, during our EDA, we were able to create a more accurate model to
-predict weights of giant pumpkins but have opted to use the Ridge model instead. 
-We have chosen to do so as the _____ model required upwards of 5 hours to run 
-which we believe to be impractical and as such have decided to use a slightly less
-accurate but much faster model.
+### Note for Model Selection
+We were able to create a more accurate model with Random Forest to
+predict weights of giant pumpkins but have opted to use the Ridge model
+instead. We have chosen to do so as the Random Forest model required
+upwards of 5 hours to run which we believe to be impractical and as such
+have decided to use a slightly less accurate but a much faster model.
