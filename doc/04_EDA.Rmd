@@ -9,14 +9,14 @@ We have used Altair [@vanderplas2018altair] to generate the visualization for ou
 
 ## Distribution Plots
 
-The following distribution plots are created to visualize the distribution of the prediction target (weight_lbs) and the selected features. <img src="result/eda_distribution.png"/>\
+The following distribution plots are created to visualize the distribution of the weight_lbs (target) and the selected features. <img src="result/eda_distribution.png"/>\
 We have concluded the following findings from the above plot.
 
--   The majority weight of the giant pumpkins is between 0-1200lbs and the distribution is right-skewed.
+-   The majority weight of the giant pumpkins is between 0-1200lbs and the distribution is right-skewed. so in case imputation is needed, our strategy would not be filling the missing values ith mean.
 
--   Most of the giant pumpkins samples are from the United States and Canada.
+-   Most of the giant pumpkins samples are from the United States and Canada which is reasonable based on the introduction that we have explained.
 
--   There are more samples coming from particular locations (state/province, city and GPC site)
+-   There are more samples coming from particular locations (state/province, city and GPC site).
 
 ## Pairwise Relationship with Prediction Target (Weight)
 
