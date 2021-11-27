@@ -547,10 +547,10 @@ From the above figure, we can see a strong, roughly linear relationship between 
 </div>
 <div id="analysis" class="section level1">
 <h1>Analysis</h1>
-<p>The programming language <span class="citation">(Van Rossum and Drake 2009)</span> and the scikit-learn <span class="citation">(Pedregosa et al. 2011)</span> are used to build our machine learn model.</p>
+<p>The Python programming language <span class="citation">(<span>“Python Package Index - PyPI”</span> n.d.)</span> and the following packages were used to perform the analysis: Altair<span class="citation">(VanderPlas et al. 2018)</span>, SKlearn <span class="citation">(Pedregosa et al. 2011)</span> and knitr <span class="citation">(Xie 2021)</span>.</p>
 <p>The majority of the raw data is composed of features with the character data type whilst others are numeric features. Some categorical features such as <code>country</code>, <code>state_prov</code> and <code>city</code> contain information relating to the origin of the pumpkin and where it was grown. Others numeric features such as <code>year</code> stores which year the pumpkin was grown and <code>ott</code> is the “over-the-top” measurement of the giant pumpkin size. We have chosen features that we believe they may impact the weight of a pumpkin whilst dropping other features that we deem irrelevant. We do think <code>seed_mother</code>, and <code>pollinator_father</code> features contain genetic information which would have an impact on the pumpkin size. However, the data quality in these two features are low as a fairly high percentage of data do not conform with the convention suggested (’ weight seed year’) and we are not able to extract the genetic information we want, thus we decided to drop these features.</p>
 <p>An initial data cleaning, preparation and pre-processing was required to ready the data for training purposes. The dataset was split with a 70/30 split for the training and test sets respectively along with random seeding for reproducibility.</p>
-<p>For the numeric features, we used a simple imputer to insert the ‘mean’ value for any missing or Null values as well as a standard scaler via a pipeline. For categorical features, we similarly used a simple imputer but instead of filling in values with the mean, we filled them in with the value ‘missing’. We then used one hot encoding to encode the categorical features.</p>
+<p>For the numeric features, we used a simple imputer to insert the ‘median’ value for any missing or Null values as well as a standard scaler via a pipeline. For categorical features, we similarly used a simple imputer but instead of filling in values with the mean, we filled them in with the value ‘missing’. We then used one hot encoding to encode the categorical features.</p>
 <p>The Ridge model was used to build and predict the weight (lbs) of a giant pumpkin given certain features from the dataset. The model was created using the train dataset, combined with the features we spoke about earlier, and the actual given weights of particular giant pumpkins.</p>
 <p>Cross-validation is carried out to for hyperparameter tuning. We have used the <code>GridSearchCV</code> to find the optimized value of <code>alpha</code> in the Ridge model.</p>
 </div>
@@ -582,14 +582,17 @@ Figure 2. Prediction weights vs Actual weights
 <div id="ref-tidytuesday" class="csl-entry">
 Mock, Thomas. 2021. <span>“Tidy Tuesday: A Weekly Data Project Aimed at the r Ecosystem.”</span> <a href="https://github.com/rfordatascience/tidytuesday">https://github.com/rfordatascience/tidytuesday</a>.
 </div>
-<div id="ref-scikit-learn" class="csl-entry">
-Pedregosa, F., G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, et al. 2011. <span>“Scikit-Learn: Machine Learning in <span>P</span>ython.”</span> <em>Journal of Machine Learning Research</em> 12: 2825–30.
+<div id="ref-pedregosa2011scikit" class="csl-entry">
+Pedregosa, Fabian, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, et al. 2011. <span>“Scikit-Learn: Machine Learning in Python.”</span> <em>Journal of Machine Learning Research</em> 12 (Oct): 2825–30.
 </div>
-<div id="ref-Python" class="csl-entry">
-Van Rossum, Guido, and Fred L. Drake. 2009. <em>Python 3 Reference Manual</em>. Scotts Valley, CA: CreateSpace.
+<div id="ref-pypi" class="csl-entry">
+<span>“Python Package Index - PyPI.”</span> n.d. Python Software Foundation. Accessed March 28, 2021. <a href="https://pypi.org/">https://pypi.org/</a>.
 </div>
 <div id="ref-vanderplas2018altair" class="csl-entry">
 VanderPlas, Jacob, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. 2018. <span>“Altair: Interactive Statistical Visualizations for Python.”</span> <em>Journal of Open Source Software</em> 3 (32): 1057.
+</div>
+<div id="ref-knitr" class="csl-entry">
+Xie, Yihui. 2021. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 </div>
 </div>
