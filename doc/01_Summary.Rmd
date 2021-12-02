@@ -1,15 +1,19 @@
 ---
 title: "R Notebook"
-output: html_notebook
-params:
-  best_alpha: -1
-  best_score_cv: -1
-  test_score: -1
+output:
+  html_document:
+    df_print: paged
 ---
+
+```{r read_result, echo=FALSE}
+
+result <- read_csv("result/cvresults.csv", show_col_types = FALSE)
+best_alpha <- result$best_alpha
+best_score_cv <- result$best_score
+result <- read_csv("result/testscore.csv", show_col_types = FALSE)
+test_score <- result$test_score
+```
 
 # Summary
 
-This project is an attempt to build a prediction model using regression based machine learning models to estimate the weight of giant pumpkins based on their features such as year of cultivation, place, and over the top(ott) size in order to predict the next year's winner of the GP competition. Different regression based prediction models such as Linear, Ridge and Random Forest were used for training and cross-validation on the training data. For the Ridge model, the hyperparameter ($\alpha$) was optimised to return
-the best cross validation score. This model performed fairly well in predicting on the test data which led us to finalise the use of
-the model for prediction. The best score on cross validation sets is `r params$best_score_cv` and the mean test score is `r params$test_score`. The Random Forest model had similar cross-validation and test scores, but due to its high fit times, it was not chosen for this report. Therefore, for the purpose of reproducibility, we have decided to utilise the Ridge model as our prediction model. For better performance and precision, other models may also be tried on the data.
-
+This project is an attempt to build a prediction model using regression based machine learning models to estimate the weight of giant pumpkins based on their features such as year of cultivation, place, and over the top(ott) size in order to predict the next year's winner of the GP competition. Different regression based prediction models such as Linear, Ridge and Random Forest were used for training and cross-validation on the training data. For the Ridge model, the hyperparameter ($\alpha$) was optimised to return the best cross validation score. This model performed fairly well in predicting on the test data which led us to finalise the use of the model for prediction. The best score on cross validation sets is `r best_score_cv` and the mean test score is `r test_score`. The Random Forest model had similar cross-validation and test scores, but due to its high fit times, it was not chosen for this report. Therefore, for the purpose of reproducibility, we have decided to utilise the Ridge model as our prediction model. For better performance and precision, other models may also be tried on the data.
