@@ -89,12 +89,27 @@ def main(file, out_dir):
     best_alpha = search.best_params_
     best_score = search.best_score_
 
-    #print("The best alpha value is " + str(best_alpha))
-    #print("The best CV score is " + str(best_score))
+    # print("The best alpha value is " + str(best_alpha))
+    # print("The best CV score is " + str(best_score))
     print(str(best_alpha.get("ridge__alpha")) + " " + str(best_score))
 
     with open(out_dir+"/model.pickle", "wb") as f:
         pickle.dump(search, f, pickle.HIGHEST_PROTOCOL)
+
+    save_results(out_dir+"/cvresults.csv", best_alpha, best_score)
+
+
+def save_results(filename, best_alpha, best_score):
+    """
+    Save the cross validation result to a csv file,
+    in the form for "best alpha,best_score"
+    """
+    with open(filename, 'w') as output:
+        output.write("best_alpha,best_score\n")
+        output.write(str(best_alpha.get("ridge__alpha")))
+        output.write(",")
+        output.write(str(best_score))
+    output.close()
 
 
 if __name__ == "__main__":

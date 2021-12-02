@@ -81,6 +81,19 @@ def main(file, object_file, out_dir):
     print(score)
     #print("The testing score is " + str(score))
 
+    save_results(out_dir+"/testscore.csv", score)
+
+
+def save_results(filename, score):
+    """
+    Save the test score to a csv file,
+    in the form for "test_score"
+    """
+    with open(filename, 'w') as output:
+        output.write("test_score\n")
+        output.write(str(score))
+    output.close()
+
 
 if __name__ == "__main__":
     # main(opt['--file'],opt['--out_dir'])

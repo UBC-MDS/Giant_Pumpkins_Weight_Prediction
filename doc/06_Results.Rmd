@@ -1,9 +1,5 @@
 ---
 title: "Results"
-params:
-  best_alpha: -1
-  best_score_cv: -1
-  test_score: -1
 output:
   html_document:
     df_print: paged
@@ -12,23 +8,37 @@ editor_options:
     wrap: 72
 ---
 
+```{r read_score, echo=FALSE}
+result <- read_csv("result/cvresults.csv", show_col_types = FALSE)
+best_alpha <- result$best_alpha
+best_score_cv <- result$best_score
+result <- read_csv("result/testscore.csv", show_col_types = FALSE)
+test_score <- result$test_score
+```
+
 # Results and Discussion
 
-We found the optimized `alpha` value of our Ridge model be `r params$best_alpha`. In doing so, we were able to achieve a cross
-validation score of `r params$best_score_cv`.
+We found the optimized `alpha` value of our Ridge model be
+`r best_alpha`. In doing so, we were able to achieve a cross validation
+score of `r best_score_cv`.
 
 ```{r hyperparameter_tuning, echo=FALSE, fig.cap="Figure 1. Hyperparameter Tuning for Ridge", out.width = '60%'}
 library(knitr)
 knitr::include_graphics("result/tuning_ridge.png")
 ```
 
-Our prediction model performed decently well on the test data as well.  The testing score we obtained with the testing set is `r params$test_score`.  Below graph shows the plot of the predicted weight (lbs) vs actual weight (lbs) from the testing data set.  
+Our prediction model performed decently well on the test data as well.
+The testing score we obtained with the testing set is `r test_score`.
+Below graph shows the plot of the predicted weight (lbs) vs actual
+weight (lbs) from the testing data set.
+
 ```{r predictin, echo=FALSE, fig.cap="Figure 2. Prediction weights vs Actual weights", out.width = '60%'}
 library(knitr)
 knitr::include_graphics("result/predict_result.png")
 ```
 
 ### Note for Model Selection
+
 We were able to create a more accurate model with Random Forest to
 predict weights of giant pumpkins but have opted to use the Ridge model
 instead. We have chosen to do so as the Random Forest model required
