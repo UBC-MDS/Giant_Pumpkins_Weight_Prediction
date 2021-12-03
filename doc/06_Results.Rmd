@@ -37,7 +37,16 @@ library(knitr)
 knitr::include_graphics("result/predict_result.png")
 ```
 
-### Note for Model Selection
+## Critique, Limitations and Future Improvements
+
+We faced several limitations in our analysis such as limited types of features
+available for feature engineering and modelling. In addition, many features had 
+to be discarded due to their lack of relevance to our model.
+
+Future studies on this subject can be improved with the inclusion of more relevant
+predictive features or more data. Additionally, further data cleaning methods could
+also be applied, such as inspection and removal of outliers, as these can affect 
+regression model performance significantly.
 
 We were able to create a more accurate model with Random Forest to
 predict weights of giant pumpkins but have opted to use the Ridge model
