@@ -65,9 +65,9 @@ The dependencies for this project can be found in `environment.yaml` located [he
 
     conda env create -f environment.yaml
 
-After having finished the work with our project, the following command can be run to deactivate the environment:
+After having finished the work with our project, the following command can be run to deactivate the environment in the terminal/command line:
 
-    conda deactivate
+    conda deactivate 
 
 The list of dependencies are given below which are tentative and may change as per updates in the environment file:
 
@@ -108,10 +108,50 @@ If the above is already installed, the file may already exist and therefore, it 
 
 ## Usage
 
-For replicating the analysis and usage, clone this GitHub repository and run the following script in the `pumpkin` environment created. You may run the following commands at the root directory of the cloned repository folder.
+For replicating the analysis and usage, clone this GitHub repository, install dependencies for creating the environment as stated above and run the following scripts in the `pumpkin` environment created. You may run the following commands at the root directory of the cloned repository folder.
 
-    conda activate pumpkin
+#### Option 1: This approach ensures a cleaned directory post reviewing the results.
+
+This approach generates the report through `make` and helps cleaning up all the related files generated in the process. Run the following commands in the Command line/ Terminal in the root directory of the project after activating the environment:
+
+To run all the scripts and generate the final report, run the `Makefile` through the following command:
+
+    make all
+
+To clean up the files generated and reinstate to the initial cloned state, run the following command in the Command Line/ Terminal:
+
+    make clean
+
+#### Option 2: This approach is an alternative to `make` :
+
+This approach runs all the scripts to create the files and the final report. Make sure to activate the `pumpkin` environment.
+
     bash run_all.sh  
+
+#### Option 3: This approach runs individual scripts in case the above do not run:
+
+    # Download raw data
+    python src/script/download_data.py --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-19/pumpkins.csv" --out_file="data/raw/pumpkins.csv"
+
+    # Clean data and split the data into train/test set
+    python src/script/clean_split_train_test.py --file="data/raw/pumpkins.csv" --out_dir="data/processed"
+
+    # Perform exploratory data anlysis
+    python src/script/eda.py --file="data/processed/pumpkins_train.csv" --out_dir="doc/result"
+
+    # Perform data preprocessing and tune regression model
+    python src/script/preprocessor_model.py --file="data/processed/pumpkins_train.csv" --out_dir="doc/result"
+
+    # Evalate the model with test result
+    python src/script/evaluate.py --file='data/processed/pumpkins_test.csv' --object_file='doc/result/model.pickle' --out_dir='doc/result'
+
+
+    # Render final report
+    Rscript -e "rmarkdown::render('doc/pumpkin.Rmd')"
+
+All of the above options create the files along with the final report file `pumpkin.html`, which rests in the `doc` directory of this project. To open the final report html file directly, run the following command in the Command Line/ Terminal:
+
+    open doc/pumpkin.html
 
 ## References
 
