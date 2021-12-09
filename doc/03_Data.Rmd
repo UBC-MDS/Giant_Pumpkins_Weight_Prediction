@@ -10,7 +10,7 @@ The data used for this project comes from [BigPumpkins.com](http://www.bigpumpki
 
 The dataset is a public domain resource which pertains to the attributes of giant pumpkins grown in around 20 countries across the world in different regions. The raw data which was used in this project for the analysis can be found [here](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-10-19/pumpkins.csv) from [@tidytuesday].
 
-Following are the description of the data and its attributes:
+Table 1 below shows the description of the data and its attributes:
 
 ## Data dictionary
 
@@ -32,6 +32,8 @@ Following are the description of the data and its attributes:
 | variety           | character | Variety of pumpkin                                  |
 
 Types: F = "Field Pumpkin", P = "Giant Pumpkin", S = "Giant Squash", W = "Giant Watermelon", L = "Long Gourd" (length in inches, not weight in pounds), T = Tomato
+
+Table 1 : Data Dictionary
 
 Data description adapted from [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-19/readme.md).
 

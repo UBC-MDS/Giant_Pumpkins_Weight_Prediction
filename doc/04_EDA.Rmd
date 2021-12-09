@@ -9,10 +9,14 @@ We have used Altair [@vanderplas2018altair] to generate the visualization for ou
 
 ## Distribution Plots
 
-The following distribution plots are created to visualize the distribution of the weight_lbs (target) and the selected features. <img src="result/eda_distribution.png"/>\
-We have concluded the following findings from the above plot.
+The distribution plots in Figure 2 below are created to visualize the distribution of the weight_lbs (target) and the selected features. 
 
--   The majority weight of the giant pumpkins is between 0-1200lbs and the distribution is right-skewed. so in case imputation is needed, our strategy would not be filling the missing values ith mean.
+```{r, echo=FALSE, fig.width = 12, fig.height = 8, fig.cap="Figure 2. Distribution Plots of Giant Pumpkin Weight and selected features"}
+knitr::include_graphics("result/eda_distribution.png")
+```
+We have concluded the following findings from the above plots.
+
+-   The majority weight of the giant pumpkins is between 0-1200lbs and the distribution is right-skewed. Therefore, in case imputation is needed, our strategy would not be filling the missing values with mean.
 
 -   Most of the giant pumpkins samples are from the United States and Canada which is reasonable based on the introduction that we have explained.
 
@@ -21,6 +25,9 @@ We have concluded the following findings from the above plot.
 ## Pairwise Relationship with Prediction Target (Weight)
 
 We have visualized the relationship between the giant pumpkin weight and the features we think relevant to the growth of giant pumpkins, including ott, country, city, state/province and GPC site.
+```{r, echo=FALSE, fig.width = 12, fig.height = 6, fig.cap="Figure 3. Pairwise Relationship of Giant Pumpkin Weight and selected features"}
+knitr::include_graphics("result/eda_relationship.png")
+```
 
-<img src="result/eda_relationship.png"/>\
-From the above figure, we can see a strong, roughly linear relationship between weight and ott. And for the location features (country,city, state/provence and GPC site), the plots also indicates that the mean weight is higher for some particular locations.
+
+From the Figure 3 above, we can see a strong, roughly linear relationship between weight and ott. And for the location features (country,city, state/provence and GPC site), the plots also indicates that the mean weight is higher for some particular locations.
