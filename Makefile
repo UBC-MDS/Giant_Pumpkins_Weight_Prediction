@@ -31,15 +31,18 @@ doc/result_model : data/processed src/script/preprocessor_model.py
 
 
 # Evalate the model with test result
-doc/result_test : data/processed src/script/evaluate.py
+doc/result_test : data/processed doc/result_model src/script/evaluate.py
 	python src/script/evaluate.py --file='data/processed/pumpkins_test.csv' --object_file='doc/result/model.pickle' --out_dir='doc/result'
 
 
 # Render final report
-doc/pumpkin.Rmd : doc/result_test doc/result_model doc/result_eda data/processed
+# modified by Vanessa
+doc/pumpkin.Rmd : doc/result_model doc/result_test doc/result_eda 
 	Rscript -e "rmarkdown::render('doc/pumpkin.Rmd')"
 
 clean:
+# modified by Vanessa
+	rm -rf doc/result/*
 	rm -rf data/raw/pumpkins.csv
 	rm -rf data/processed
 	rm -rf doc/result_eda
