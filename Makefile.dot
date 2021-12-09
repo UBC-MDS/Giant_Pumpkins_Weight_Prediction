@@ -1,0 +1,28 @@
+digraph G {
+n2[label="all", color="red"];
+n5[label="data/processed", color="red"];
+n6[label="data/raw/pumpkins.csv", color="red"];
+n3[label="doc/pumpkin.Rmd", color="red"];
+n12[label="doc/result_eda", color="red"];
+n4[label="doc/result_model", color="red"];
+n10[label="doc/result_test", color="red"];
+n8[label="src/script/clean_split_train_test.py", color="green"];
+n7[label="src/script/download_data.py", color="green"];
+n13[label="src/script/eda.py", color="green"];
+n11[label="src/script/evaluate.py", color="green"];
+n9[label="src/script/preprocessor_model.py", color="green"];
+n3 -> n2 ; 
+n6 -> n5 ; 
+n8 -> n5 ; 
+n7 -> n6 ; 
+n12 -> n3 ; 
+n4 -> n3 ; 
+n10 -> n3 ; 
+n5 -> n12 ; 
+n13 -> n12 ; 
+n5 -> n4 ; 
+n9 -> n4 ; 
+n5 -> n10 ; 
+n4 -> n10 ; 
+n11 -> n10 ; 
+}
