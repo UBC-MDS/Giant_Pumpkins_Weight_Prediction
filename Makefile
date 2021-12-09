@@ -44,8 +44,5 @@ clean:
 # modified by Vanessa
 	rm -rf doc/result/*
 	rm -rf data/raw/pumpkins.csv
-	rm -rf data/processed
-	rm -rf doc/result_eda
-	rm -rf doc/result_model
-	rm -rf doc/result_test
+	rm -rf data/processed/*
 	
