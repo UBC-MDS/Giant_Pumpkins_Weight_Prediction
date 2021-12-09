@@ -5,6 +5,7 @@ bibliography: pumpkin_ref.bib
 output: 
     html_document:
       toc: yes
+      toc_float: true
 ---
 
 ```{r setup, include=FALSE}
