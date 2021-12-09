@@ -15,6 +15,9 @@ $30,000 if you break the world record (1,226 kg). Everyone dreams of a spot in "
 
 So let's test a model to estimate whether within the next year farmers can break the record or not.
 
-Base on the data gathered by bigpumpkins website, the ott (over the top) is the most important feature for estimating the weight which is shown in below picture.
+Base on the data gathered by bigpumpkins website, the ott (over the top) is the most important feature for estimating the weight which is shown in Figure 1.
 
-`r knitr::include_graphics("ott.png")`
+
+```{r, echo=FALSE, fig.width = 6, fig.height = 4, fig.cap="Figure 1. Over the top Measurement of Giant Pumpkin"}
+knitr::include_graphics("ott.png")
+```
