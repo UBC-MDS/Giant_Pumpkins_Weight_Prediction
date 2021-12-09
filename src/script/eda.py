@@ -29,7 +29,7 @@ def main(file, out_dir):
 
     # weight distribution
     weight_dist_plot = (
-        alt.Chart(train_df)
+        alt.Chart(train_df, title = "Distribution of Pumpkin weights (target feature)")
         .mark_bar()
         .encode(
             alt.X("weight_lbs", bin=alt.Bin(maxbins=20)),
@@ -40,7 +40,7 @@ def main(file, out_dir):
 
     # ott distribution
     ott_dist_plot = (
-        alt.Chart(train_df)
+        alt.Chart(train_df, title = "Distribution of Over the Top (OTT) measurements")
         .mark_bar()
         .encode(
             alt.X("ott", bin=alt.Bin(maxbins=20)),
@@ -51,7 +51,7 @@ def main(file, out_dir):
 
     # country distribution
     country_dist_plot = (
-        alt.Chart(train_df)
+        alt.Chart(train_df, title = "Country wise distribution")
         .mark_bar()
         .encode(x="count()", y=alt.Y("country"))
         .properties(width=300, height=200)
