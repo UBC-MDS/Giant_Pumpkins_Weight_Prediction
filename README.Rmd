@@ -66,23 +66,98 @@ The majority of the raw data comprises of features of the character type where s
 
 Results of the analysis can be found [here](https://github.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/blob/main/doc/pumpkin.html) .
 
-
-## Dependencies
-
-The dependencies for this project can be found in `environment.yaml` located [here](https://raw.githubusercontent.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/main/environment.yaml). The yaml file needs to be run to create the environment required for running the analysis. If conda is installed, the following command can be run at the terminal/ command line from the root directory of this project folder (".../Giant_Pumpkins_Weight_Prediction/") to install the dependencies:
-
-    conda env create -f environment.yaml
-    
-For generating the plots in the report, install the following packages with this command in the environment created:
-
-    conda activate pumpkin
-    npm install -g vega vega-cli vega-lite canvas
-
 ## Usage
 
-For replicating the analysis and usage, clone this GitHub repository and run the following script in the `pumpkin` environment created.  You may run the following commands at the root directory of the cloned repository folder. 
+For replicating the analysis and usage, there are two ways:
+
+##### 1. Using [Docker](https://hub.docker.com/r/imtvwy/giant_pumpkin_weight_prediction)
+
+note - the instructions in this section also depends on running this in a unix shell (e.g., terminal or Git Bash).
+
+1. Install [Docker](https://www.docker.com/get-started)
+2. Download/clone this repository in the path you have selected.
+3. Use the command line to navigate to the root of this downloaded/cloned repo
+4. Type the following:
+
+    `docker run --rm -v /$(pwd):/home/rstudio/pumpkin  imtvwy/giant_pumpkin_weight_prediction make -C home/rstudio/pumpkin all`
+ 
+5. To reset/undo the analysis, type the following commands:
+
+    `docker run --rm -v /$(pwd):/home/rstudio/pumpkin  imtvwy/giant_pumpkin_weight_prediction make -C home/rstudio/pumpkin clean`
+
+##### 2. Whithout Using Docker
+ 
+1. Download/clone this repository  and using the command line, navigate to the root of this project.
+2. install the project environment(`environment.yaml`) 
+
+3. To run the analysis, type the following commands:
+
+    `make all`
+
+4. To reset/undo the analysis, type the following commands:
+
+    `make clean`
+    
+Below image can demonstrate the dependency diagram for making the report by `Makefile`
+
+```{r, echo=FALSE, fig.width = 6, fig.height = 10, fig.cap="Dependency Diagram"}
+knitr::include_graphics("Makefile.png")
+```
+Fig.1 - Dependency Diagram
+    
+## Dependencies
+
+The dependencies for this project can be found in [`environment.yaml`](https://raw.githubusercontent.com/UBC-MDS/Giant_Pumpkins_Weight_Prediction/main/environment.yaml).
+
+The yaml file needs to be run to create the environment required for running the analysis. If conda is installed, the following command can be run at the terminal/ command line from the root directory of this project folder ("…/Giant_Pumpkins_Weight_Prediction/") to install the dependencies:
+
+`conda activate pumpkin`
+
+After having finished the work with our project, the following command can be run to deactivate the environment in the terminal/command line:
+
+`conda deactivate`
+
+The list of dependencies are given below which are tentative and may change as per updates in the environment file:
+
+* Python & Python libraries:
+
+
+  `altair_saver==0.5.0=py_0`
   
-    conda activate pumpkin
-    bash run_all.sh  
+  `requests[version='>=2.24.0']`
+  
+  `pandas[version='>=1.3.*']`
+  
+  `vega_datasets=0.9.0`
+  
+  `ipykernel=6.5.1`
+  
+  `altair==4.1.0=py_1`
+  
+  `graphviz=2.49.3`
+  
+  `python-graphviz=0.19`
+  
+  `scikit-learn[version='>=1.0']`
+  
+  `altair_data_server==0.4.1=py_0`
+  
+  `pandoc=2.16.2`
+  
+  `altair_viewer==0.4.0=pyhd8ed1ab_0`
+  
+  `matplotlib[version='>=3.2.2']`
+  
+  `docopt=0.6.2`
+
+* GNU make 4.2.1 
+
+For generating the plots in the report, install the following packages with this command in the environment created:
+
+`conda activate pumpkin`
+`npm install -g vega vega-cli vega-lite canvas`
+
+If the above is already installed, the file may already exist and therefore, it may throw an error asking to force install, which may be ignored.
+
     
 ## References
