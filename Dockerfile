@@ -13,6 +13,9 @@ RUN apt-get update
 # Install R Packages
 RUN Rscript -e "install.packages('knitr')"
 
+# Solve Rscript warning by install libxt6
+RUN apt-get install -y --no-install-recommends libxt6
+
 # Install the Anaconda distribution of Python
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
@@ -25,8 +28,8 @@ RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_6
     /opt/conda/bin/conda clean -afy && \
     /opt/conda/bin/conda update -n base -c defaults conda
 
-# Update conda
-RUN /opt/conda/bin/conda update conda
+# Put Anaconda Python in PATH
+ENV PATH="/opt/conda/bin:${PATH}"
 
 # Install Python Packages
 RUN /opt/conda/bin/conda install -y -c anaconda \
@@ -34,9 +37,7 @@ RUN /opt/conda/bin/conda install -y -c anaconda \
     altair=4.1.* 
 
 # Install pandoc altair_saver
-RUN /opt/conda/bin/conda install -y -c conda-forge scikit-learn pandoc altair_saver
+RUN /opt/conda/bin/conda install -y -c conda-forge pandoc altair_saver
 
-# Put Anaconda Python in PATH
-ENV PATH="/opt/conda/bin:${PATH}"
 
-#CMD ["/bin/bash"]
+CMD ["/bin/bash"]
