@@ -217,7 +217,8 @@ change as per updates in the environment file:
 For generating the plots in the report, install the following packages
 with this command in the environment created:
 
-`conda activate pumpkin` `npm install -g vega vega-cli vega-lite canvas`
+`conda activate pumpkin` 
+`npm install -g vega vega-cli vega-lite canvas`
 
 If the above is already installed, the file may already exist and
 therefore, it may throw an error asking to force install, which may be
