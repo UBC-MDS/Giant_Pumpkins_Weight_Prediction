@@ -135,13 +135,13 @@ a unix shell (e.g., terminal or Git Bash).
 
 4.  Type the following:
 
-    `docker run --rm -v /$(pwd):/home/rstudio/pumpkin  imtvwy/giant_pumpkin_weight_prediction make -C home/rstudio/pumpkin all`
+    `docker run --rm -v "/$(pwd):/home/rstudio/pumpkin"  imtvwy/giant_pumpkin_weight_prediction make -C home/rstudio/pumpkin all`
 
 5.  To reset/undo the analysis, type the following commands:
 
-    `docker run --rm -v /$(pwd):/home/rstudio/pumpkin  imtvwy/giant_pumpkin_weight_prediction make -C home/rstudio/pumpkin clean`
+    `docker run --rm -v "/$(pwd):/home/rstudio/pumpkin"  imtvwy/giant_pumpkin_weight_prediction make -C home/rstudio/pumpkin clean`
 
-##### 2. Whithout Using Docker
+##### 2. Without Using Docker
 
 1.  Download/clone this repository and using the command line, navigate
     to the root of this project.
