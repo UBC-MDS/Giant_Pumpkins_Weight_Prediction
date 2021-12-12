@@ -39,6 +39,20 @@ library(knitr)
 knitr::include_graphics("result/predict_result.png")
 ```
 
+Apart from the above features, the numeric features used in the model had coefficients estimated as per the figure below:
+```{r numeric_features, echo=FALSE, fig.cap="Figure 7. Feature importances for numeric features", out.width = '60%'}
+library(knitr)
+knitr::kable("result/coefficients_numeric.csv")
+```
+
+
+Post optimization, for categorical features, we found the following features as the top 5 most important features impacting prediction positively and negatively as produced by our model:
+```{r numeric_features, echo=FALSE, fig.cap="Figure 7. Feature importances for categorical features", out.width = '60%'}
+library(knitr)
+knitr::kable("result/coefficients_categorical.csv")
+```
+
+
 ## Critique, Limitations and Future Improvements
 
 We faced several limitations in our analysis such as limited types of features
