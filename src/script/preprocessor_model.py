@@ -57,6 +57,8 @@ def main(file, out_dir):
         (numeric_transformer, numeric_features),
         (categorical_transformer, categorical_features),
     )
+    preprocessor.fit_transform(X_train, y_train)
+    
 
     # Tune hyperparameter alpha with GridSearchCV
     param_grid = {"ridge__alpha": 10.0 ** np.arange(-3, 3, 1)}
@@ -92,12 +94,69 @@ def main(file, out_dir):
     # print("The best alpha value is " + str(best_alpha))
     # print("The best CV score is " + str(best_score))
     print(str(best_alpha.get("ridge__alpha")) + " " + str(best_score))
+    
+    # Coefficients of features estimated by model
+    # 1. Extracting categorical features 
+    ohe_columns = list(
+    preprocessor.named_transformers_["pipeline-2"]
+      .named_steps["onehotencoder"]
+      .get_feature_names_out(categorical_features)
+    )
+    
+    # 2. Creating columns in sequence same as preprocessor
+    new_columns = (
+        numeric_features + ohe_columns
+    )
+    
+    # 3. Creating pipeline and fitting tuned model on Training data
+    pipe_bestalpha = make_pipeline(
+        preprocessor, 
+        Ridge(alpha=best_alpha["ridge__alpha"]
+      )
+    )
+    pipe_bestalpha.fit(X_train, y_train)
+    
+    # 4. Extracting all coefficients
+    bestalpha_coeffs = pipe_bestalpha.named_steps["ridge"].coef_
+    coefficients_results = pd.DataFrame(
+        data=bestalpha_coeffs, 
+        index=new_columns, 
+        columns=["Coefficients"]
+    )
+    
+    # 5. Top 5 Numeric features coefficients
+    numeric_coefficients = coefficients_results[
+      :len(numeric_features)
+    ].sort_values(
+      by="Coefficients", 
+      ascending=False
+    ).round(2)
+    
+    # 6. Top 5 Categorical features with positive and negative coefficients
+    top_five_positive = coefficients_results[
+      len(numeric_features):
+        ].sort_values(
+          by="Coefficients", 
+          ascending=False
+    ).round(2).head(5)
+    
+    top_five_negative = coefficients_results[
+      len(numeric_features):
+        ].sort_values(
+          by="Coefficients"
+    ).round(2).head(5)
+    categorical_coefficients = pd.concat(
+      [top_five_positive,top_five_negative]
+    )
+
 
     with open(out_dir+"/model.pickle", "wb") as f:
         pickle.dump(search, f, pickle.HIGHEST_PROTOCOL)
 
+    # Saving results and coefficients
     save_results(out_dir+"/cvresults.csv", best_alpha, best_score)
-
+    save_coefficients(out_dir+"/coefficients_numeric.csv", numeric_coefficients)
+    save_coefficients(out_dir+"/coefficients_categorical.csv", categorical_coefficients)
 
 def save_results(filename, best_alpha, best_score):
     """
@@ -111,6 +170,13 @@ def save_results(filename, best_alpha, best_score):
         output.write(str(best_score))
     output.close()
 
+def save_coefficients(filename, coefficient):
+    """
+    Save the features with highest magnitudes of coefficients to a csv file
+    """
+    # with open(filename, 'w') as output:
+    #     output.write(coefficient)
+    # output.close()
 
 if __name__ == "__main__":
     main(opt['--file'], opt['--out_dir'])
