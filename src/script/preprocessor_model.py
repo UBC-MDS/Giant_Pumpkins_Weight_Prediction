@@ -72,6 +72,53 @@ def main(file, out_dir):
     train_scores = search.cv_results_["mean_train_score"]
     cv_scores = search.cv_results_["mean_test_score"]
 
+    # Report CV score
+    best_alpha = search.best_params_
+    best_score = search.best_score_
+
+    
+    # Features Coefficient
+    pipe_bestalpha = make_pipeline(preprocessor, Ridge(alpha=best_alpha["ridge__alpha"]))
+    pipe_bestalpha.fit(X_train, y_train)
+
+    ohe_columns = list(
+        preprocessor.named_transformers_["pipeline-2"]
+        .named_steps["onehotencoder"]
+        .get_feature_names_out(categorical_features)
+    )
+    new_columns = numeric_features + ohe_columns
+
+    bestalpha_coeffs = pipe_bestalpha.named_steps["ridge"].coef_
+    coefficients_results = pd.DataFrame(
+        data=bestalpha_coeffs, index=new_columns, columns=["Coefficients"]
+    )
+    # Coefficients of numeric features
+    numeric_coefficients = (
+        coefficients_results[: len(numeric_features)]
+        .sort_values(by="Coefficients", ascending=False)
+        .round(2)
+    )
+
+    # Coefficients of categorical features
+    # categorical_coefficients =
+    top = (
+        coefficients_results[len(numeric_features) :]
+        .sort_values(by="Coefficients", ascending=False)
+        .round(2)
+        .head(5)
+    )
+    bottom = (
+        coefficients_results[len(numeric_features) :]
+        .sort_values(by="Coefficients")
+        .round(2)
+        .head(5)
+    )
+    coef_pd = pd.concat([top, bottom])
+    coef_pd.reset_index(drop=False, inplace=True)
+    coef_pd=coef_pd.rename(columns={"index": "Features"})
+    coef_pd.to_csv(out_dir+"/coeff.csv", index="False")
+
+
     # Plot tuning result
     plt.semilogx(param_grid["ridge__alpha"],
                  train_scores.tolist(), label="train")
@@ -85,14 +132,7 @@ def main(file, out_dir):
 
     plt.savefig(out_dir+"/tuning_ridge.png")
 
-    # Report CV score
-    best_alpha = search.best_params_
-    best_score = search.best_score_
-
-    # print("The best alpha value is " + str(best_alpha))
-    # print("The best CV score is " + str(best_score))
-    print(str(best_alpha.get("ridge__alpha")) + " " + str(best_score))
-
+   
     with open(out_dir+"/model.pickle", "wb") as f:
         pickle.dump(search, f, pickle.HIGHEST_PROTOCOL)
 
